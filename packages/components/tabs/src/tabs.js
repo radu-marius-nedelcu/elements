@@ -2,6 +2,9 @@ import { TSElement, unsafeCSS, html, customElementDefineHelper } from '@tradeshi
 import css from './tabs.css';
 import { customEventNames } from './utils';
 
+import '@tradeshift/elements.icon';
+import '@tradeshift/elements.typography';
+
 customElementDefineHelper(
 	'ts-tabs',
 	class extends TSElement {
@@ -22,7 +25,6 @@ customElementDefineHelper(
 		}
 
 		tabClickHandler(tab) {
-			console.log('tab', tab);
 			this.dispatchCustomEvent(customEventNames.TAB_CLICK, { tab });
 		}
 
@@ -54,7 +56,7 @@ customElementDefineHelper(
 		}
 
 		tabTemplate(tab) {
-			/* eslint-disable */
+			/* eslint-disable lit/no-template-bind */
 			return html`
 				<button ?selected="${tab.selected}" @click="${() => this.tabClickHandler(tab)}">
 					${this.iconTemplate(tab)}

@@ -27,16 +27,16 @@
 
 ## ➤ Properties
 
-| Property | Attribute | Type   | Default | Description         |
-| -------- | --------- | ------ | ------- | ------------------- |
-| tabs     | tabs      | array  |         | List of tab objects |
-| dir      | dir       | string | ltr     | Direction (rtl/ltr) |
+| Property | Attribute | Type   | Default | Description                                                |
+| -------- | --------- | ------ | ------- | ---------------------------------------------------------- |
+| tabs     | tabs      | array  |         | List of tab objects => properties: {label, icon, selected} |
+| dir      | dir       | string | ltr     | Direction (rtl/ltr)                                        |
 
 ## ➤ Events
 
-| Event Name | Payload  | Description                                                                    |
-| ---------- | -------- | ------------------------------------------------------------------------------ |
-| tab-click  | tab : {} | Emitted when the user close the aside by clicking on the close button or cover |
+| Event Name | Payload  | Description                          |
+| ---------- | -------- | ------------------------------------ |
+| tab-click  | tab : {} | Emitted when the user click on a tab |
 
 ## ➤ How to use it
 
