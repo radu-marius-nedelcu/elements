@@ -49,7 +49,8 @@
 						'progress-bar',
 						'help-text',
 						'note',
-						'spinner'
+						'spinner',
+						'tabs'
 					];
 					components.forEach(function(component) {
 						var el = document.createElement('script');
@@ -190,6 +191,39 @@
 
 					document.getElementById('closeableNote1').addEventListener('close', handleNoteClose);
 					document.getElementById('rootNote').addEventListener('button-click', handleButtonClick);
+				</script>
+			</article>
+
+			<article>
+				<h2>ts-tabs</h2>
+				<ts-tabs dir="rtl" id="tabs1"></ts-tabs>
+				<script>
+					let tabs = [
+						{ id: 'id1', label: 'One', selected: true, icon: 'ada' },
+						{ id: 'id2', label: 'Two', counter: 12 },
+						{ id: 'id3', label: 'Three', closeable: true },
+						{ id: 'id4', label: 'Four' }
+					];
+					const tabs1 = document.getElementById('tabs1');
+					tabs1.setAttribute('tabs', JSON.stringify(tabs));
+
+					function handleTabClick(event) {
+						tabs = tabs.map(tab => {
+							if (tab.id === event.detail.tab.id) {
+								tab.selected = true;
+							}
+
+							if (tab.selected && tab.id !== event.detail.tab.id) {
+								delete tab.selected;
+							}
+
+							return tab;
+						});
+
+						tabs1.setAttribute('tabs', JSON.stringify(tabs));
+					}
+
+					document.getElementById('tabs1').addEventListener('tab-click', handleTabClick);
 				</script>
 			</article>
 
