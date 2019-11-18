@@ -7,7 +7,7 @@
 <h1 align="center">Elements</h1>
 
 <p align="center">
-  Reusable Tradeshift UI Components as Web Components 
+  Reusable Tradeshift UI Components as Web Components
     <a href="https://tradeshift.github.io/elements">
       https://tradeshift.github.io/elements
     </a>
@@ -227,10 +227,21 @@ $ npm run component-gen
 
 ## ➤ How to release
 
-As mentioned before, we are using [lerna](https://github.com/lerna/lerna), to be able to publish you need enable your [two-factor authentication in npm](https://docs.npmjs.com/configuring-two-factor-authentication)
+We are using [lerna to publish](https://github.com/lerna/lerna/tree/master/commands/publish#readme) our elements
+
+- Create a branch for releasing。 `git branch release`
+- `git push release` and set the upstream.
+- `lerna publish`
+- If you have problems while releasing. The following may help
 
 ```shell
-$ NPM_CONFIG_OTP=123456 lerna publish`   # Push the packages to registry.npmjs.org
+# delete local tag '12345'
+git tag -d 12345
+# delete remote tag '12345' (eg, GitHub version too)
+git push origin :refs/tags/12345
+# alternative approach
+git push --delete origin tagName
+git tag -d tagName
 ```
 
 `NPM_CONFIG_OTP` is a workaround way to solve [the problem](https://github.com/lerna/lerna/issues/1137), which lerna fails to publish, after assigning [2FA](https://docs.npmjs.com/about-two-factor-authentication) on npm account
